@@ -1,9 +1,12 @@
+require('dotenv').config(); //Sirve para usar las variables de entorno
+const database = process.env.DATABASE;
+
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true );
 
 const connection = async() =>{
     try{
-        await mongoose.connect('mongodb://127.0.0.1:27017/ControlEmpresas')
+        await mongoose.connect(database)
         console.log('Conectado a la base de datos!! OwO')
     }catch(err){
         console.log(err)
